@@ -1,0 +1,13 @@
+Ori=$(pwd)
+NL_List=(`ls -d */`)
+
+for((i=0;i<${#NL_List[*]};++i))
+do
+    cd ${NL_List[${i}]}
+    echo $(pwd)
+
+    temp=$(pwd)
+    dcm2nii -4 y -a y -p y -r y -c y -o ${temp} *
+    
+    cd ${Ori}
+done
